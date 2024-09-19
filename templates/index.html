@@ -8,16 +8,46 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
-    /* Global Styling */
-body {
-    font-family: Arial, sans-serif;
-    color: #333;
+    header {
+        background-color: black;
+        height: 80px;
+        display: flex;
+        justify-content: space-around; /* Distribute <p> elements evenly */
+        align-items: center; /* Vertically center the content */
+        border: 5px solid gray;
+        position: fixed; /* Keeps the header fixed at the top */
+        width: 100%;
+        top: 0;
+        z-index: 1000; /* Ensures header is on top of other elements */
+    }
+    
+    header p {
+        font-size: 20px;
+        font-weight: bold;
+        padding: 20px;
+        margin: 0;
+    }
+    
+    header p a {
+        color: white; /* Ensure the links are visible */
+        text-decoration: none;
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        color: #333;
+        margin: 0;
+        padding-top: 100px; /* Added padding so content doesn't get hidden under the header */
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+    
+h1 {
     margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    overflow-x: hidden;
+    font-size: 2.5em;
+    background: linear-gradient(to right, rgb(11, 10, 10), #00B0F0, rgb(11, 10, 10));
+    border: 5px solid gray;
 }
-
 .content {
     width: 100%;
     margin: 0 auto;
@@ -25,11 +55,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: black;
     flex-wrap: wrap; /* Makes the content stack on smaller screens */
 }
 
+.container{
+    border-radius: 10px;
+    background: linear-gradient(to right, rgb(11, 10, 10), #00B0F0, rgb(11, 10, 10));
+    position: relative;
+    
+}
 #about1 {
-    color: rgb(27, 25, 25);
+    color: white;
     padding: 20px;
     font-size: 25px;
     text-align: center;
@@ -41,7 +78,7 @@ body {
 #about1 h2 {
     font-weight: bold;
     font-size: 45px;
-    color: #00B0F0;
+    color: #d5e2e7;
 }
 
 #about2 img, #about2 video {
@@ -56,12 +93,6 @@ body {
     border-radius: 10px;
 }
 
-.container {
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    background: linear-gradient(to right, rgb(11, 10, 10), #00B0F0, rgb(11, 10, 10));
-    position: relative;
-}linear
 
 .blurred-background {
     position: fixed;
@@ -72,6 +103,7 @@ body {
     background: inherit;
     filter: blur(10px);
     z-index: -1;
+    background-color: black;
 }
 
 .jumbotron {
@@ -88,10 +120,7 @@ body {
     box-shadow: 0 0 10px rgb(0, 0, 0);
 }
 
-h1 {
-    margin: 0;
-    font-size: 2.5em;
-}
+
 
 form {
     background: #fff;
@@ -141,12 +170,15 @@ img {
 }
 
 .prediction h2 {
-    background-color: #0024f0;
+    background-color: #036d4d;
     padding: 10px;
     text-align: center;
     border-radius: 10px;
     font-weight: bold;
     color: white;
+}
+.prediction h2:hover{
+    background-color:#197c5e ;
 }
 
 /* Media Queries for Responsive Design */
@@ -181,11 +213,16 @@ img {
   </style>
 </head>
 <body>
-    <br>
-
+    <header>
+        <p id="p1"><a href="#">Home</a></p>
+        <p id="p1"><a href="#">About</a></p>
+        <p id="p1"><a href="#">Explain</a></p>
+        <p id="p1"><a href="#">Testing</a></p>
+        <p id="p1"><a href="#">Contact</a></p>
+        
+    </header>
 <!-- Section at the top of the page -->
 <h1 class="jumbotron bg-primary">Pneumonia Detection</h1>
-<br>
 <section>
     <div class="content row">
         <div id="about1" class="col-md-6">
@@ -215,9 +252,9 @@ img {
 
 <!-- Form Section Below -->
 <section>
-    <div class="blurred-background"></div>
     <h1 class="jumbotron bg-primary">Let's Test</h1>
     <br>
+    <div class="blurred-background"></div>
     <div class="container">
         <br><br>
         <form class="form-horizontal" action="/submit" method="post" enctype="multipart/form-data">
@@ -241,6 +278,9 @@ img {
         </div>
     </div>
 </section>
+<br>
+<h1 class="jumbotron bg-primary">Thankyou for Visiting</h1>
+
 
 </body>
 </html>
